@@ -5,7 +5,14 @@ const {Todo} = require('./../server/models/todo');
 
 const {User} = require('./../server/models/user');
 
-
+User.findById('5ac7eecf8c98e3dc1e92ad15').then((user) => {
+  if (!user){
+    return console.log('Unable to find user');
+  }
+    console.log(JSON.stringify(user, undefined, 2));
+}, (e) => {
+  console.log(e);
+});
 
 // var id = '5aca1d14472ecfac319fc1361';
 //
@@ -31,12 +38,3 @@ const {User} = require('./../server/models/user');
  //   }
  //   console.log('Todo By Id', todo);
  // }).catch((e) => console.log(e));
-
-User.findById('5ac7eecf8c98e3dc1e92ad15').then((user) => {
-  if (!user){
-    return console.log('Unable to find user');
-  }
-    console.log(JSON.stringify(user, undefined, 2));
-}, (e) => {
-  console.log(e);
-});
